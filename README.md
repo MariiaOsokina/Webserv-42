@@ -1,4 +1,4 @@
-# Webserv-42
+<!-- # Webserv-42
 
 The 42 Webserv project is a milestone in the 42 curriculum.
 
@@ -12,4 +12,4 @@ Core Objectives:
 
 2 - The HTTP Protocol: Implementing the parsing and execution of HTTP methods (GET, POST, DELETE) and returning appropriate status codes (e.g., 200 OK, 404 Not Found).
 
-3 - CGI (Common Gateway Interface): Enabling the server to execute external scripts (like Python or PHP) to handle dynamic content.
+3 - CGI (Common Gateway Interface): Enabling the server to execute external scripts (like Python or PHP) to handle dynamic content. -->

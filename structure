@@ -1,0 +1,59 @@
+webserv/
+├── Makefile                
+├── default.conf            # Default configuration file
+├── README.md               
+├── include/                # All .hpp files
+│   ├── config/             # Config parsing headers
+│   ├── server/             # Socket and poll() loop headers
+│   ├── http/               # Request/Response/Mime headers
+│   ├── cgi/                # CGI execution headers
+│   └── utils/              # Utility/Helper headers
+├── src/                    # All .cpp files
+│   ├── main.cpp            # Entry point
+│   ├── config/             # Config parser implementation
+│   ├── server/             # Master server and Client logic
+│   ├── http/               # Request parsing and Response building
+│   ├── cgi/                # CGI logic and environment setup
+│   └── utils/              # Status codes, logging, strings
+├── www/                    # Test website files
+│   ├── html/               # Static .html files
+│   ├── uploads/            # Folder for POSTed files
+│   ├── cgi-bin/            # Python/PHP scripts
+│   └── errors/             # Custom 404.html, 500.html, etc.
+└── tests/                  # Some Python or Shell test scripts
+
+
+/*src/config/ (Partner B's Home)
+This is where the logic for reading webserv.conf lives.
+
+Config.cpp: The main parser.
+
+ServerBlock.cpp: Data container for one server {} block.
+
+LocationBlock.cpp: Data container for one location {} block.
+
+src/server/ (Partner A's Home)
+This handles the "plumbing" of the network.
+
+Webserv.cpp: The main loop that manages the pollfd vector and calls poll().
+
+TcpListener.cpp: Handles socket(), bind(), and listen().
+
+Client.cpp: Represents a single connected user. It should store that user's specific pollfd, their raw request buffer, and their pending response.
+
+src/http/ (Joint Effort)
+This is the "brain" that connects the config to the network.
+
+HttpRequest.cpp: Logic to turn a raw string into a method, path, and headers.
+
+HttpResponse.cpp: Logic to generate the string HTTP/1.1 200 OK....
+
+MimeTypes.cpp: A small utility to map .jpg to image/jpeg so the browser knows what it's receiving.
+
+src/utils/
+Helpful functions that don't belong to a class.
+
+Logger.cpp: For printing colored timestamps to the terminal (makes debugging much easier!).
+
+StringUtils.cpp: For trim(), split(), or converting int to string (since C++98 doesn't have std::to_string).
+*/
